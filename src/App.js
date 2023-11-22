@@ -1,30 +1,23 @@
-// import logo from './logo.svg';
-import { Provider } from 'react-redux';
-import './App.css';
-import Body from './components/Body';
-import Head from './components/Head';
-import store from './utils/store';
+import "./App.css";
+import Head from "./component/Head";
+import Body from "./component/Body";
 
-function App() {
+const App = () => {
   return (
-    
-    <Provider store={store}>
-    <div >
-     <Head />
-     <Body/>
-   {/*
-      Head 
-     Body 
-       *Sidebar
-       *MenuItems
-     MainContainer 
-    . ButtonList
-    . VideoContainer 
-    . VideoCard 
-     */}
+    <div>
+    <Head />
+    <Body />
     </div>
-    </Provider>
-  );
-} 
+  )
+}
 
-export default App;
+// Head 
+// Body 
+//  - sidebar
+//  -menuItems
+//  MainContainer 
+//  -ButtonList
+//  -Videocontainer
+//  -videocard
+
+export default App
