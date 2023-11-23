@@ -1,8 +1,14 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 const Sidebar = () => {
+   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
+   
+    // Early Return 
+    if(!isMenuOpen) return null;
+
   return (
-    <div className='bg-black col-span-1  text-white text-center text-xl '>
+    <div className='bg-black col-span-1  text-white text-center text-xl w-80 '>
         <div className='text-2xl'>
              <ul>
         <li>Home</li>
@@ -58,7 +64,7 @@ const Sidebar = () => {
         <li>Send feedback</li>
         <hr></hr>
        </ul>
-       <p className='m-10' >About Press Copyright <br></br>Contact us Creators <br></br> Advertise Developers</p>
+       <p >About Press Copyright <br></br>Contact us Creators <br></br> Advertise Developers</p>
     </div>
   )
 }

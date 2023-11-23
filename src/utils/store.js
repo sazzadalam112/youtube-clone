@@ -1,6 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
+import appSlice from "./appSlice";
 
-const Store = configureStore({
-
-});
-export default Store;
+const store = configureStore({
+ reducer : {
+    app: appSlice
+ }
+})
+export default store;

@@ -1,14 +1,21 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { toggleMenu } from '../utils/appSlice';
 
 const Head = () => {
+    const dispatch = useDispatch();
+    const toggleMenuHandler = () => {
+    dispatch(toggleMenu());
+    }
   return (
     <div className='grid grid-flow-col p-2 m-2 shadow-lg bg-slate-100 justify-between'>
-        <div className='flex col-span-1'>
-           <img className='h-20 text-white' 
-     alt="Hamburger"
-     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7oSi_YdarakDB25vEvGD4lausLzTojboO0w&usqp=CAU"/>
+      <div className='flex col-span-1'>
+        <img className='h-20 text-white cursor-pointer' 
+        onClick={() => toggleMenuHandler()}  
+       alt="Hamburger"
+       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7oSi_YdarakDB25vEvGD4lausLzTojboO0w&usqp=CAU"/>
 
-     <img 
+      <img 
      className='h-10 m-5 mx-12 '
      alt="Youtube"
      src="https://cdn.pixabay.com/photo/2015/04/13/17/45/icon-720944_1280.png"/>  
