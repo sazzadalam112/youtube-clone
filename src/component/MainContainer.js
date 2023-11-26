@@ -1,14 +1,14 @@
 import React from 'react'
-import ButtonList from './ButtonList'
+import Buttonlist from './Buttonlist'
 import VideoContainer from './VideoContainer'
 
-const MainContainer = () => {
+function MainContainer() {
   return (
-    <div className='col-span-11'>
-     <ButtonList />
-     <VideoContainer />
-    </div>
-  )
+  <div>
+      <Buttonlist />  
+      <VideoContainer  />
+   </div>
+  )  
 }
 
 export default MainContainer

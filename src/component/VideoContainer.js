@@ -1,23 +1,29 @@
-import React, { useEffect } from 'react'
-import { YOUTUBE_VIDEOS_API } from '../utils/constants';
+import { useEffect, useState } from "react";
+import { YT_API } from "./constant";
+import Videocard from "./Videocard";
+import { Link } from "react-router-dom";
+
+
 
 const VideoContainer = () => {
-
-    useEffect(() => {
+  const [videos, setVideos] = useState([]);
+  
+  const getVideos = async (setVideos) => {
+    const data = await fetch(YT_API);
+    const json = await data.json();
+    setVideos(json.items);
     
-        getVideos();
-    },[])
-    const getVideos = async () => {
-        const data = await fetch (YOUTUBE_VIDEOS_API);
-        const json = await data.json();
-        console.log(json);
-    }
+  };
+  useEffect(() => {
+    getVideos(setVideos);
+  }, []);
 
   return (
-    <div>
-      VideoContainer
+    <div className="flex flex-wrap mt-2">
+      {videos.map((item)=>
+      (<Link to={"/watch?v=" + item.id} key={item.id}> <Videocard  info={item}/></Link> ))}  
     </div>
-  )
-}
+  );
+};
 
-export default VideoContainer
+export default VideoContainer;
