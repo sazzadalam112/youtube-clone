@@ -1,12 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import NavSlice from "./NavSlice";
-import LiveSlice from "./LiveSlice";
+import appslice from "./appslice";
 
-const store = configureStore(  {
-    reducer:{
-        nav:NavSlice,
-        chat:LiveSlice,
-    },
+const store = configureStore({
+    reducer: {
+        app: appslice
+    }
 
-} )
- export default store;
+});
+export default store;
