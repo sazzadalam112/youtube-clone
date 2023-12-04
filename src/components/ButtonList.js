@@ -36,7 +36,7 @@ const ButtonList = ({onCategoryClick}) => {
   };
 
   return (
-    <div className='flex sticky justify-center z-40'>
+    <div className='flex sticky justify-start z-40'>
       <div className='flex items-center justify-end'>
       <button onClick={scrollLeft} className='max-sm:hidden'><FaArrowLeft size={16}/></button>
       </div>
