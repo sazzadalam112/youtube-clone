@@ -9,3 +9,10 @@ with debouncing = 3 api call _ 1000 = 3000
 
 Debouncing with 200ms
 if difference b/w 2 key strokes is <200ms - Decline api call
+
+<!-- Cache  -->
+
+time complexity to search in array = o(n)
+time complexity to search in array = o(1)
+
+[i,ip,iph,iphone]
