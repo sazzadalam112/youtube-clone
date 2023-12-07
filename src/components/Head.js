@@ -73,7 +73,7 @@ const Head = () => {
         />
         <button className='bg-slate-200 h-16 rounded-r-full px-8 pt-3'>🔍</button>
         </div>
-        {showSuggestions && ( <div className='fixed bg-gray-400 text-left ml-80 w-[94rem] rounded-2xl shadow-2xl'>
+        {showSuggestions && ( <div className='absolute bg-gray-400 text-left ml-80 w-[94rem] rounded-2xl shadow-2xl'>
           <ul className='pl-8 pt-4 text-white text-2xl'>
             {suggestion.map(s =>(
             <li key={s} className=' py-2 hover:bg-gray-600'>🔍{s}</li>
