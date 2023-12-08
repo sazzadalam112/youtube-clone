@@ -11,7 +11,7 @@ const Sidebar = () => {
 
     
   return (
-    <div className='bg-slate-500 mx-2 text-white col-span-1 w-80'>
+    <div className='bg-slate-500 mx-2 text-white col-span-1 w-50 sm:w-80'>
       <div className='flex px-10 p-3'>
        <img 
        className='h-10 w-10'

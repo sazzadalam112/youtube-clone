@@ -13,7 +13,7 @@ if(!info || !info.snippet || !info.statistics) {
  const {thumbnails, title, channelTitle} = snippet;
 //  const {viewCount} = statistics;
   return (
-    <div className=' p-2 m-5 w-[30rem] h-96 shadow-xl bg-black rounded-2xl text-white  '>
+    <div className=' p-2 m-5 w-[20rem] sm:w-[25rem] h-96 shadow-xl bg-black rounded-2xl text-white  '>
     <div className='w-100%'>
     <img className='rounded-lg text-center w-full ' alt='thumbnail' src = {thumbnails.medium.url} />
     <ul>
@@ -28,7 +28,7 @@ if(!info || !info.snippet || !info.statistics) {
 
 export const Addvideos = ({info}) => {
   return(
-    <div className='p-2 m-5 w-[30rem] h-96 shadow-xl bg-black rounded-2xl text-white'>
+    <div className='p-2 m-5 w-[20rem] sm:w-[25rem] h-96 shadow-xl bg-black rounded-2xl text-white'>
       <img className='rounded-lg text-center w-full  ' 
       alt='thumbnail'  
       src='https://www.shutterstock.com/image-photo/digital-marketing-concept-online-advertisement-600nw-1849162366.jpg' />

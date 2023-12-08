@@ -109,14 +109,14 @@ const commentData = [
 const Comment = ({data}) => {
     const{ name , text, replies} = data;
     return(
-     <div className='flex shadow-sm bg-gray-200 p-2 rounded-lg my-2'>
+     <div className='flex shadow-sm bg-gray-200 w-50% p-2 rounded-lg my-2'>
          <img 
         className='h-16 w-16'
           alt='user'
           src='https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg'
           />
-        <div className='px-5 text-xl'>
-        <p className='font-bold text-2xl'>@{name}</p>
+        <div className='px-5 text-xl '>
+        <p className='font-bold text-2xl w-100'>@{name}</p>
         <p className='text-xl'>{text}</p>
         </div>
        </div>
@@ -140,7 +140,7 @@ const CommentList = ({comments}) => {
 }
 const CommentsContainer = () => {
   return (
-    <div className='px-10'>
+    <div className='px-0'>
       <h1 className='text-4xl font-bold'>Comments:</h1>
      <CommentList comments = {commentData}/>
     </div>
