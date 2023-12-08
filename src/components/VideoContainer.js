@@ -17,7 +17,7 @@ const VideoContainer = () => {
     setVideos(json.items);
   }
   return (
-    <div className='sm:flex flex-wrap '>
+    <div className='sm:flex flex-wrap w-100%'>
      <Addvideos />
       { videos.map((video,index) => (
         <Link key={index} to={"/watch?v="+ video.id}>

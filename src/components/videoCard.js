@@ -13,8 +13,8 @@ if(!info || !info.snippet || !info.statistics) {
  const {thumbnails, title, channelTitle} = snippet;
 //  const {viewCount} = statistics;
   return (
-    <div className=' p-2 m-5 w-[20rem] sm:w-[25rem] h-96 shadow-xl bg-black rounded-2xl text-white  '>
-    <div className='w-100%'>
+    <div className='w-screen sm:w-full'>
+    <div className='p-2 m-5 max-w-screen-sm w-[20rem] sm:w-[25rem] h-96 shadow-xl bg-black rounded-2xl text-white'>
     <img className='rounded-lg text-center w-full ' alt='thumbnail' src = {thumbnails.medium.url} />
     <ul>
       <li className='font-bold text-left text-2xl '>{title}</li>
