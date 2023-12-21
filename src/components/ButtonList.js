@@ -40,7 +40,7 @@ const ButtonList = ({onCategoryClick}) => {
       <div className='flex items-center justify-end'>
       <button onClick={scrollLeft} ><FaArrowLeft size={16}/></button>
       </div>
-      <div data-testid="btn-list" ref={scrollRef} className='hide-scrollBar flex max-w-[15%] sm:max-w-[80%] whitespace-nowrap overflow-x-scroll mx-4'>
+      <div data-testid="btn-list" ref={scrollRef} className='hide-scrollBar flex max-w-[80%] sm:max-w-[80%] whitespace-nowrap overflow-x-scroll mx-4'>
         {
           keywords.map((button, index) => (
             <div key={index} onClick={()=>{setActiveElement(button);onCategoryClick(button);}}>

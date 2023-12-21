@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import {  YT_API } from '../utils/constants';
-import VideoCard, { Addvideos }  from './videoCard';
+import { YT_API } from '../utils/constants';
+import VideoCard, { Addvideos } from './videoCard';
 import { Link } from 'react-router-dom';
 
+
 const VideoContainer = () => {
-  const [videos,setVideos] = useState([]);
+  const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-  getvideos();
-  },[])
+    getvideos();
+  }, [])
 
   const getvideos = async () => {
     const data = await fetch(YT_API);
@@ -18,14 +19,17 @@ const VideoContainer = () => {
   }
   return (
     <div className='sm:flex flex-wrap w-100%'>
-     <Addvideos />
-      { videos.map((video,index) => (
-        <Link key={index} to={"/watch?v="+ video.id}>
-          <VideoCard  info = {video} />
-          </Link>
-        ))
+      <li>
+
+      </li>
+      <Addvideos />
+      {videos.map((video, index) => (
+        <Link key={index} to={"/watch?v=" + video.id}>
+          <VideoCard info={video} />
+        </Link>
+      ))
       }
-    
+
     </div>
   )
 }

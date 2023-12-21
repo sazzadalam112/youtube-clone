@@ -1,35 +1,40 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import {closeMenu} from '../utils/appslice'
+import { closeMenu } from '../utils/appslice'
 import { useSearchParams } from 'react-router-dom'
 import CommentsContainer from './CommentsContainer'
+import LiveChat from './LiveChat'
 
 const WatchPage = () => {
-   
-    const [searchParams] = useSearchParams();
-    // console.log(searchParams.get("v"));
 
-    const dispatch = useDispatch();
-    useEffect(() => {
-     dispatch(closeMenu());
-    },[])
+  const [searchParams] = useSearchParams();
+  // console.log(searchParams.get("v"));
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(closeMenu());
+  }, [])
 
   return (
-    <div className='flex-flex-row'>
-    <div className='flex-grow-9 rounded-xl p-1 sm:p-16 sm:pr-2 w-screen md:w-[60rem] m
-    ' >
-     <iframe 
-    className='rounded-2xl'
-     width="100%"
-      height="450"
-       src={"https://www.youtube.com/embed/" + searchParams.get("v") }
-       title="YouTube video player" 
-       frameBorder="0" 
-       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-       allowFullScreen>
-       </iframe>
-    </div>
-    <CommentsContainer />
+    <div className='flex-flex-row w-screen px-1'>
+      <div className=' flex   md:px-20 pt-10  rounded-2xl' >
+        <div className='' >
+          <iframe
+            className=' md:h-[600px] w-96 px-4 md:w-[1200px]'
+            width="100%"
+            height="250"
+            src={"https://www.youtube.com/embed/" + searchParams.get("v")}
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen>
+          </iframe>
+        </div>
+        <div >
+          <LiveChat />
+        </div>
+      </div>
+      <CommentsContainer />
     </div>
   )
 }
