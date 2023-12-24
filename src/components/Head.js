@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { toggleMenu } from '../utils/appslice';
 import { YOUTUBE_SEARCH_API } from '../utils/constants';
 import { cacheResults } from '../utils/searchSlice';
+import { MdOutlineDarkMode } from "react-icons/md"
+import { MdOutlineLightMode } from "react-icons/md"
 
 
 const Head = () => {
@@ -47,10 +49,21 @@ const Head = () => {
     })
     );
   }
+  const [darkMode, setDarkMode] = useState(false);
 
+  // setting Initial theme to Light Mode
+  document.documentElement.classList.toggle('dark', darkMode);
+
+  // DarkMode toggling
+  const toggletheme = () => {
+
+    setDarkMode(!darkMode);
+    document.documentElement.classList.toggle('dark', darkMode);
+
+  }
   return (
 
-    <div className='grid grid-flow-col justify-between shadow-2xl  p-5 b w-screen w-full bg-white dark:bg-green-400'>
+    <div className='grid grid-flow-col justify-between shadow-2xl  p-5 b  w-full bg-white dark:bg-green-400'>
       <div className='flex col-span-1 items-center'>
         <img
           onClick={() => toggleMenuHandler()}
@@ -91,6 +104,10 @@ const Head = () => {
           className='h-6 w-10  sm:h-20 sm:w-20 '
           alt='user'
           src='https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg' />
+      </div>
+      {/* DarkMode Icon */}
+      <div className={`flex items-center col-span-2 'max-sm:hidden' : 'ml-2'}`}>
+        {!darkMode ? <MdOutlineDarkMode className="text-2xl" onClick={() => toggletheme()} /> : <MdOutlineLightMode className="text-2xl text-white" onClick={() => toggletheme()} />}
       </div>
     </div>
 
