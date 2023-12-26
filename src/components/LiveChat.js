@@ -1,10 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import ChatMessage from "./ChatMsg";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { addMessages } from "../utils/ChatSlice";
 import { generateRandomName, generateRandomMessage } from "../utils/helper";
 
 const LiveChat = () => {
+    const [liveMsg, setLiveMsg] = useState("")
 
     const dispatch = useDispatch()
     const ChatMessages = useSelector((store) => store.chat.messages)
@@ -12,65 +13,51 @@ const LiveChat = () => {
     useEffect(() => {
         const i = setInterval(() => {
             // API Polling 
-            console.log("API Polling")
 
             dispatch(addMessages({
                 name: generateRandomName(),
                 message: generateRandomMessage(25) + "🚀",
             }))
 
-        }, 500);
+        }, 5000);
         return () => clearInterval(i);
 
     }, [])
 
     return (
-        <div className=" border border-black w-full h-[600px] p-2 bg-slate-100 overflow-y-scroll flex flex-col-reverse">
+        <>
+            <div className=" border border-black w-full h-[600px] p-2 bg-slate-100 overflow-y-scroll flex flex-col-reverse">
+                <div>
+                    {ChatMessages.map((c, id) => (
+                        <ChatMessage key={id} name={c.name} message={c.message} />))}
+                </div>
+            </div>
+            <form className="border border-black h-20 w-full bg-slate-100"
+                onSubmit={(e) => {
+                    e.preventDefault();
 
-            {ChatMessages.map((c, id) => (
-                <ChatMessage key={id} name={c.name} message={c.message} />))}
-
-        </div>
-
+                    dispatch(
+                        addMessages({
+                            name: 'sazzad',
+                            message: liveMsg,
+                        })
+                    );
+                    setLiveMsg(' ')
+                }}>
+                <input
+                    className="mx-8 my-3 p-3 w-96 rounded-full bg-gradient-to-r from-cyan-100 to-red-200  text-xl "
+                    type="text"
+                    placeholder="Chat"
+                    value={liveMsg}
+                    onChange={(e) => {
+                        setLiveMsg(e.target.value)
+                    }}
+                />
+                <button className="p-3 mx-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl ">Send</button>
+            </form>
+        </>
     )
 
 }
 export default LiveChat;
 
-// import { useEffect } from "react";
-// // import ChatMessage from "./ChatMsg";
-// import { useDispatch, useSelector } from "react-redux";
-// import { addMessages } from "../utils/ChatSlice";
-// import ChatMessage from "./ChatMsg";
-// import { generateRandomMessage, generateRandomName } from "../utils/helper";
-
-
-
-// const LiveChat = () => {
-
-//     const dispatch = useDispatch();
-
-//     const ChatMessages = useSelector((store) => store.chat.messages)
-
-//     useEffect(() => {
-//         const i = setInterval(() => {
-//             console.log('web-polling')
-//             dispatch(addMessages({
-//                 name: generateRandomName(),
-//                 message: generateRandomMessage(25) + "🚀",
-//             })
-//             );
-//         }, 200);
-//         return () => clearTimeout(i)
-//     }, [])
-//     return (
-//         <div className="h-[600px] w-full border border-black bg-slate-100 overflow-y-scroll ml-2 pt-2 flex flex-col-reverse">
-//             {ChatMessages.map((c, i) =>
-//                 <ChatMessage key={i}
-//                     name={c.name}
-//                     message={c.message} />)}
-
-//         </div>
-//     )
-// }
-// export default LiveChat;
