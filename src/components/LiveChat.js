@@ -32,7 +32,8 @@ const LiveChat = () => {
                         <ChatMessage key={id} name={c.name} message={c.message} />))}
                 </div>
             </div>
-            <form className="border border-black h-20 w-full bg-slate-100"
+
+            <form className="border border-black h-20 w-full"
                 onSubmit={(e) => {
                     e.preventDefault();
 
@@ -42,18 +43,19 @@ const LiveChat = () => {
                             message: liveMsg,
                         })
                     );
-                    setLiveMsg(' ')
+                    setLiveMsg(" ");
                 }}>
                 <input
-                    className="mx-8 my-3 p-3 w-96 rounded-full bg-gradient-to-r from-cyan-100 to-red-200  text-xl "
+                    className="w-96 mx-20 my-4 p-3 rounded-full bg-slate-200 text-xl"
                     type="text"
-                    placeholder="Chat"
+                    placeholder="Chat ..."
                     value={liveMsg}
                     onChange={(e) => {
                         setLiveMsg(e.target.value)
-                    }}
-                />
-                <button className="p-3 mx-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl ">Send</button>
+                    }} />
+
+                <button className="bg-red-500 py-2 px-4 rounded-2xl">Send</button>
+
             </form>
         </>
     )

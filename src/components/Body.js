@@ -9,7 +9,7 @@ const Body = () => {
   return (
     <div className='grid grid-flow-col  w-full md:w-fit '>
       <Sidebar />
-     
+
       <Outlet />
     </div>
   )
